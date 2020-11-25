@@ -1,6 +1,6 @@
-FROM ubuntu:bionic
-RUN apt-get -qq update && \
-    apt-get -qq install -y nodejs npm > /dev/null
+FROM ubuntu:focal-20201008
+ENV DEBIAN_FRONTEND="noninteractive" TZ="Europe/London"
+RUN apt-get update && apt-get install -y nodejs npm
 RUN mkdir -p /app/public /app/server
 COPY src/package.json* /app
 WORKDIR /app
